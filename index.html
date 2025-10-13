@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Compost-Warmte systemen — Biomeilers</title>
+  <meta name="description" content="Wij bouwen biomeilers voor boeren, (glas)tuinders en innovatieve bouwprojecten." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root{
+      /* Theme (iets donkerder oranje) */
+      --primary: #FF6A2C;
+      --primary2: #FF7A45;
+      --secondary: #A8E6CF;
+      --secondary2: #94DCC2;
+      --bg: var(--secondary);
+      --fg: #1E1E1E;
+      --footer: rgba(0,0,0,0.5); /* exact dezelfde tint als bg-black/50 */
+      --footer-perceived: #547368; /* benaderde gemengde kleur op de groene achtergrond */
+    }
+
+    .text-primary{ color: var(--primary); }
+    .bg-primary{ background-color: var(--primary); }
+
+    /* CTA-knoppen met lichte gradients (oranje) */
+    .btn-cta{
+      background-image: linear-gradient(135deg, var(--primary), var(--primary2));
+      color: #111;
+    }
+    /* Contact-knop in grijs-groen (#547368) */
+    .btn-support{
+      background-color: var(--footer-perceived);
+      color: #fff;
+    }
+
+    .btn-cta:hover{ filter: brightness(0.97); }
+    .btn-support:hover{ filter: brightness(1.05); }
+
+    .bg-warm-gradient{ background-image: linear-gradient(135deg, var(--primary), var(--primary2)); }
+    .shadow-warm{ box-shadow: 0 10px 30px rgba(255,112,67,.25); }
+    .text-rally{ letter-spacing: .2px }
+
+    .section-divider{height:1px; width:100%; background:linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,.15), rgba(0,0,0,0));}
+    .divider-wrap{max-width: 80rem; margin: 0 auto; padding-left: 1.5rem; padding-right:1.5rem;}
+
+    /* Titel: oranje achtergrond weghalen */
+    .title-backdrop{
+      position: relative;
+      display: inline-block;
+      padding: 0;
+      border-radius: 0;
+      background: none;
+    }
+
+    /* Hero: iets sterkere, warme lichtgroene gradient */
+    .bg-hero{
+      background-image: linear-gradient(135deg, #FAFFFC 0%, #EAFBF1 40%, #CBEEDC 100%);
+    }
+
+    /* Logo helpers */
+    .logo-wrap{
+      display:grid; place-items:center;
+      border-radius:9999px;
+      background:white;
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow: 0 6px 20px rgba(0,0,0,.08);
+    }
+    .logo-sm{ width:3rem; height:3rem; }     /* nav/footer */
+    .logo-lg{ width:5rem; height:5rem; }     /* hero */
+    .logo-mark{ width:70%; height:70%; }
+  </style>
+
+  <!-- Favicon: inline SVG data-URL (maple leaf + flame) -->
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="%23FF6A2C"/><stop offset="1" stop-color="%23FFC107"/></linearGradient></defs><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4l6 10 10-2-4 9 10 6-11 2 4 10-10-4-5 11-5-11-10 4 4-10-11-2 10-6-4-9 10 2 6-10z" fill="%237FBF9C" stroke="%23558672" stroke-width="2"/><path d="M32 18v28" stroke="%23C62828" stroke-width="2"/><path d="M24 26l8 8 8-8M22 36l10 6 10-6" stroke="%23C62828" stroke-width="1.6"/><path d="M32 26c4 3 7 6 7 10 0 3-2 6-7 8-5-2-7-5-7-8 0-4 3-7 7-10z" fill="url(%23g)" stroke="%23FF6A2C" stroke-width="1"/></g></svg>'>
+</head>
+<body class="bg-[var(--bg)] text-[#1E1E1E]">
+  <!-- SVG defs once in the document to reuse -->
+  <svg width="0" height="0" style="position:absolute"><defs>
+    <linearGradient id="flameGrad" x1="0" x2="1">
+      <stop offset="0" stop-color="#FF6A2C"/>
+      <stop offset="1" stop-color="#FFC107"/>
+    </linearGradient>
+    <!-- Reusable logo symbol -->
+    <symbol id="logo-maple" viewBox="0 0 64 64">
+      <!-- Leaf -->
+      <path d="M32 4l6 10 10-2-4 9 10 6-11 2 4 10-10-4-5 11-5-11-10 4 4-10-11-2 10-6-4-9 10 2 6-10z"
+            fill="#7FBF9C" stroke="#558672" stroke-width="2" />
+      <!-- Veins -->
+      <path d="M32 18v28" stroke="#C62828" stroke-width="2" stroke-linecap="round"/>
+      <path d="M24 26l8 8 8-8" stroke="#C62828" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M22 36l10 6 10-6" stroke="#C62828" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Flame -->
+      <path d="M32 26c4 3 7 6 7 10 0 3-2 6-7 8-5-2-7-5-7-8 0-4 3-7 7-10z"
+            fill="url(#flameGrad)" stroke="#FF6A2C" stroke-width="1" />
+    </symbol>
+  </defs></svg>
+
+  <!-- NAV -->
+  <nav class="fixed inset-x-0 top-0 z-50 bg-white/60 backdrop-blur border-b border-black/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="logo-wrap logo-sm" aria-hidden="true">
+          <svg class="logo-mark" role="img" aria-label="Compost-Warmte logo"><use href="#logo-maple"/></svg>
+        </div>
+        <div class="font-bold text-xl text-primary text-rally">Compost-Warmte</div>
+      </div>
+      <button id="menuBtn" class="md:hidden p-2 rounded hover:bg-black/5" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <div id="navLinks" class="hidden md:flex gap-8 items-center">
+        <a href="#home" class="hover:text-primary font-medium">Home</a>
+        <a href="#pijlers" class="hover:text-primary font-medium">Wat zijn biomeilers</a>
+        <a href="#voordelen" class="hover:text-primary font-medium">Voordelen</a>
+        <a href="#nieuws" class="hover:text-primary font-medium">Nieuws</a>
+        <a href="#faq" class="hover:text-primary font-medium">FAQ</a>
+        <a href="#contact" class="hover:text-primary font-medium">Contact</a>
+      </div>
+    </div>
+    <div id="navMobile" class="md:hidden hidden border-t border-black/10 bg-white/80 backdrop-blur-sm">
+      <div class="px-4 py-3 space-y-2">
+        <a href="#home" class="block py-1">Home</a>
+        <a href="#pijlers" class="block py-1">Wat zijn biomeilers</a>
+        <a href="#voordelen" class="block py-1">Voordelen</a>
+        <a href="#nieuws" class="block py-1">Nieuws</a>
+        <a href="#faq" class="block py-1">FAQ</a>
+        <a href="#contact" class="block py-1">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="relative min-h-[88vh] flex items-center justify-center pt-24 pb-16 bg-hero">
+    <div class="max-w-7xl mx-auto w-full px-6 grid md:grid-cols-2 gap-10 items-center">
+      <!-- Left column: text -->
+      <div class="text-center md:text-left">
+        <div class="mb-6 flex justify-center md:justify-start">
+          <div class="logo-wrap logo-lg">
+            <svg class="logo-mark" role="img" aria-label="Compost-Warmte logo"><use href="#logo-maple"/></svg>
+          </div>
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight">
+          <span class="title-backdrop">Thermal Compost <span class="text-primary">Solutions</span></span>
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl text-gray-900">
+          <strong>Wij</strong> bouwen 'biomeilers' voor boeren, (glas)tuinders en innovatieve bouwprojecten. Lees hier meer over hoe biomeilers werken, de voordelen voor tuinders, en waar wij mee bezig zijn.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 md:justify-start justify-center">
+          <a href="#voordelen" class="btn-cta font-semibold rounded-xl px-8 py-4 inline-flex items-center justify-center shadow-warm">Voor tuinders</a>
+          <a href="#contact" class="btn-support font-semibold rounded-xl px-8 py-4 inline-flex items-center justify-center shadow-lg">Contact</a>
+        </div>
+      </div>
+
+      <!-- Right column: image (moves under on mobile) -->
+      <div class="order-first md:order-none">
+        <figure class="rounded-2xl overflow-hidden shadow-2xl border">
+          <!-- derde foto naast de titel -->
+          <img
+            src="biomeiler-loader.jpg"
+            alt="Vullen van een grote biomeiler met verreiker"
+            class="w-full h-auto object-cover aspect-[4/3]"
+            loading="eager"
+          />
+        </figure>
+      </div>
+    </div>
+  </header>
+
+  <!-- PIJLERS / Wat zijn biomeilers -->
+  <div class="divider-wrap"><div class="section-divider"></div></div>
+  <section id="pijlers" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold mb-4 text-primary">Wat zijn biomeilers</h2>
+        <p class="text-gray-900 mb-6">
+          Biomeilers zijn tanks gevuld met mest, gewasafval, houtsnippers en andere reststromen. De biomassa warmt op tot ongeveer 60 graden en blijft twee winters lang warmte leveren. Tegelijk ontstaat er prachtige compost, rijk aan organische stof en bodemleven. Na twee jaar hervul je gewoon het systeem en begint de cyclus opnieuw!
+        </p>
+        <ul class="space-y-4">
+          <li class="rounded-xl bg-white/70 backdrop-blur p-4 border border-black/10 shadow-sm">
+            <span class="font-semibold">Biodiversiteit</span>
+            <p class="text-gray-700 mt-1">Langzaam gerijpte compost stimuleert bodemleven, verhoogt watervasthoudend vermogen en slaat koolstof op.</p>
+          </li>
+          <li class="rounded-xl bg-white/70 backdrop-blur p-4 border border-black/10 shadow-sm">
+            <span class="font-semibold">Duurzame warmtebron</span>
+            <p class="text-gray-700 mt-1">Warmte uit compost is een constante, hernieuwbare bron voor kas, stal of gebouw — zonder afhankelijkheid van fossiel gas.</p>
+          </li>
+          <li class="rounded-xl bg-white/70 backdrop-blur p-4 border border-black/10 shadow-sm">
+            <span class="font-semibold">Circulair</span>
+            <p class="text-gray-700 mt-1">Houtsnippers uit de regio, mest en gewasresten van boeren en tuinders opwaarderen tot compost en warmte — een lokaal gesloten kringloop.</p>
+          </li>
+        </ul>
+      </div>
+      <div class="order-first md:order-none">
+        <figure class="rounded-2xl overflow-hidden border shadow-2xl">
+          <!-- eerste foto bij 'Wat zijn biomeilers' -->
+          <img src="biomeiler-assembly.jpg" alt="Opbouw van een biomeiler met kraan en team" class="w-full h-auto object-cover aspect-[4/3]">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOORDELEN -->
+  <div class="divider-wrap"><div class="section-divider"></div></div>
+  <section id="voordelen" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-primary">De voordelen voor tuinders</h2>
+        <p class="mt-4 text-gray-900 max-w-3xl mx-auto">Er zijn meerdere redenen waarom een biomeiler goed kan passen binnen uw bedrijf.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="rounded-xl border-2 hover:border-[var(--primary)]/60 transition p-6 bg-white/70 backdrop-blur">
+          <h3 class="font-semibold text-xl mb-2 text-center">Verwerking van reststromen</h3>
+          <p class="text-gray-700 text-center">Zet snoeihout, mest en gewasafval lokaal in: minder afvoer, lagere kosten en waardevolle warmte + compost.</p>
+        </div>
+        <div class="rounded-xl border-2 hover:border-[var(--primary)]/60 transition p-6 bg-white/70 backdrop-blur">
+          <h3 class="font-semibold text-xl mb-2 text-center">Lagere gaskosten</h3>
+          <p class="text-gray-700 text-center">Vervang (een deel van) gasverbruik door compostwarmte. Stabiel in voor- en najaar en voorspelbare kosten.</p>
+        </div>
+        <div class="rounded-xl border-2 hover:border-[var(--primary)]/60 transition p-6 bg-white/70 backdrop-blur">
+          <h3 class="font-semibold text-xl mb-2 text-center">Bijzondere compost</h3>
+          <p class="text-gray-700 text-center">Na twee jaar ontstaat een rijke, stabiele compost met veel organische stof — goed voor bodemstructuur en opbrengst.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NIEUWS -->
+  <div class="divider-wrap"><div class="section-divider"></div></div>
+  <section id="nieuws" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-8 text-primary">Nieuws</h2>
+
+      <div class="grid md:grid-cols-2 gap-8 items-center mb-10">
+        <div>
+          <h3 class="text-2xl font-bold mb-2">Pilot op boerderij de Tolakker, Universiteit Utrecht.</h3>
+          <p class="text-gray-900">Samen met een lokale (glas)tuinder plaatsen we een biomeiler als testopstelling voor voorjaarswarmte en bodemverbetering. We monitoren temperatuur, doorstroom en compostkwaliteit.</p>
+        </div>
+        <figure class="rounded-xl overflow-hidden border shadow-2xl">
+          <!-- tweede foto als nieuws foto 1 -->
+          <img src="biomeiler-controls.jpg" alt="Team bij het regelpaneel van de biomeiler" class="w-full h-auto object-cover aspect-[16/10]">
+        </figure>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <figure class="rounded-xl overflow-hidden border shadow-2xl order-first md:order-none">
+          <!-- laat desgewenst Unsplash tweede afbeelding staan of vervang later -->
+          <img src="biomeiler-assembly.jpg" alt="Compostmateriaal en opbouw" class="w-full h-auto object-cover aspect-[16/10]">
+        </figure>
+        <div>
+          <h3 class="text-2xl font-bold mb-2">Modulaire biomeilers in zeecontainers</h3>
+          <p class="text-gray-900">We brengen boeren, hoveniers en gemeenten samen om lokale reststromen slim te bundelen voor biomeilers. Doel: stabiele warmteproductie en hoogwaardige compost.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <div class="divider-wrap"><div class="section-divider"></div></div>
+  <section id="faq" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-center mb-10 text-primary">Questions & Answers</h2>
+      <div class="divide-y border rounded-xl bg-white/70 backdrop-blur">
+        <details class="group p-6 open:bg-white/80">
+          <summary class="flex cursor-pointer items-center justify-between font-semibold text-lg">
+            Wie kan meedoen?
+            <span class="transition group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 text-gray-800">Boeren, (glas)tuinders en projectteams die reststromen lokaal willen benutten.</p>
+        </details>
+        <details class="group p-6 open:bg-white/80">
+          <summary class="flex cursor-pointer items-center justify-between font-semibold text-lg">
+            Wat kost het?
+            <span class="transition group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 text-gray-800">Kosten hangen af van grootte, beschikbare reststromen en gewenste koppeling (buffers/leidingen).</p>
+        </details>
+        <details class="group p-6 open:bg-white/80">
+          <summary class="flex cursor-pointer items-center justify-between font-semibold text-lg">
+            Hoe lang gaat het mee?
+            <span class="transition group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 text-gray-800">Een vulling levert doorgaans twee winters warmte en levert daarna compost op.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <div class="divider-wrap"><div class="section-divider"></div></div>
+  <section id="contact" class="py-20 bg-[#9BDDC4] backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-start">
+      <div class="rounded-xl p-6 shadow-2xl border bg-white">
+        <h3 class="text-2xl font-bold text-center mb-4">Contact</h3>
+        <form onsubmit="event.preventDefault(); alert('Dank! Dit demo-formulier verzendt nog niet.');" class="space-y-4">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium mb-2">Naam</label>
+              <input class="w-full rounded-md border-2 bg-gray-100 px-3 py-2" placeholder="Uw naam" required>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">E-mailadres</label>
+              <input type="email" class="w-full rounded-md border-2 bg-gray-100 px-3 py-2" placeholder="uw.email@voorbeeld.nl" required>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Ik ben geïnteresseerd als...</label>
+            <select class="w-full rounded-md border-2 bg-gray-100 px-3 py-2">
+              <option>Boer</option>
+              <option>Tuinder</option>
+              <option>Onderzoeker</option>
+              <option>Investeerder</option>
+              <option>Bedrijf</option>
+              <option>Partnerorganisatie</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Vertel ons uw idee, vraag of voorstel</label>
+            <textarea class="w-full rounded-md border-2 bg-gray-100 px-3 py-2" rows="5" placeholder="Beschrijf kort uw situatie of vraag..." required></textarea>
+          </div>
+          <!-- Oranje knop: zelfde stijl als de andere CTA -->
+          <button class="w-full btn-cta rounded-md px-6 py-3 font-semibold shadow-warm">Verstuur bericht</button>
+        </form>
+      </div>
+
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-3xl font-bold mb-4">Samen voor meer biomeilers in Nederland</h3>
+          <p class="text-gray-900 mb-3">Bent u benieuwd geworden en wilt u graag kijken of een biomeiler van toegevoegde waarde is voor uw bedrijf? Stuur ons vooral een appje of mailtje en we hebben het er graag over.</p>
+          <p class="text-gray-900">We zijn druk bezig met het toegankelijk maken van biomeilers voor elke boer. Vanaf herfst 2026 kunnen we naar verwachting meer bouwprojecten aannemen. We staan altijd open voor een vrijblijvend gesprek.</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold mb-3">Contactgegevens</h4>
+          <ul class="space-y-2">
+            <li><a class="underline underline-offset-2" href="mailto:lamet.lasse@gmail.com">lamet.lasse@gmail.com</a></li>
+            <li><a class="underline underline-offset-2" target="_blank" rel="noopener" href="#">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black/50 text-gray-200 border-t border-black/30 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+      <div class="grid sm:grid-cols-2 gap-6 items-center">
+        <div class="flex items-center gap-4">
+          <div class="logo-wrap logo-sm" aria-hidden="true">
+            <svg class="logo-mark" role="img" aria-label="Compost-Warmte logo"><use href="#logo-maple"/></svg>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-primary text-rally">Compost-Warmte</h3>
+            <p class="text-gray-300">Warmte uit compost • lokaal & circulair</p>
+          </div>
+        </div>
+        <nav class="sm:text-right space-x-6">
+          <a href="#home" class="hover:text-primary">Home</a>
+          <a href="#pijlers" class="hover:text-primary">Wat zijn biomeilers</a>
+          <a href="#voordelen" class="hover:text-primary">Voordelen</a>
+          <a href="#nieuws" class="hover:text-primary">Nieuws</a>
+          <a href="#faq" class="hover:text-primary">FAQ</a>
+          <a href="#contact" class="hover:text-primary">Contact</a>
+        </nav>
+      </div>
+      <div class="mt-8 pt-6 border-t border-gray-700/50 text-center space-y-2">
+        <p class="text-gray-300">© <span id="year"></span> Compost-Warmte. Alle rechten voorbehouden.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const navMobile = document.getElementById('navMobile');
+    menuBtn?.addEventListener('click', () => navMobile.classList.toggle('hidden'));
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
