@@ -323,7 +323,7 @@
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-start">
       <div class="rounded-xl p-6 shadow-2xl border bg-white">
         <h3 class="text-2xl font-bold text-center mb-4">Contact</h3>
-        <form action="https://formspree.io/f/mbcd1234" method="POST" class="space-y-4">
+        <form id="contactForm" action="https://formspree.io/f/mbcd1234" method="POST" class="space-y-4">
   <div class="grid sm:grid-cols-2 gap-4">
     <div>
       <label class="block text-sm font-medium mb-2">Naam</label>
@@ -352,20 +352,49 @@
     <textarea name="bericht" class="w-full rounded-md border-2 bg-gray-100 px-3 py-2" rows="5" placeholder="Beschrijf kort uw situatie of vraag..." required></textarea>
   </div>
 
-  <!-- Optioneel: onderwerpregel in je e-mail -->
   <input type="hidden" name="_subject" value="Nieuw bericht via website (Contactformulier)">
-
-  <!-- Optioneel: redirect naar een bedankpagina na verzenden -->
-  <!-- <input type="hidden" name="_next" value="https://jouw-domein.nl/bedankt.html"> -->
-
-  <!-- Honeypot tegen spam (laat dit leeg / verstop het met CSS als je wilt) -->
   <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
 
-  <button class="w-full btn-cta rounded-md px-6 py-3 font-semibold shadow-warm">Verstuur bericht</button>
+  <button type="submit" class="w-full btn-cta rounded-md px-6 py-3 font-semibold shadow-warm">Verstuur bericht</button>
 
-  <!-- Simpele succes/fout melding zonder JS -->
-  <p class="text-sm text-gray-700 mt-2">Na verzenden ziet u een bevestiging van Formspree.</p>
+  <!-- Hier verschijnt de melding -->
+  <p id="formMessage" class="text-sm text-center mt-3 hidden"></p>
 </form>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const message = document.getElementById('formMessage');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    message.classList.remove('hidden');
+    message.textContent = "Verzenden...";
+    message.style.color = "#555";
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.reset();
+        message.textContent = "Bedankt! We nemen zo snel mogelijk contact met u op.";
+        message.style.color = "#0A7A3E"; // groen tintje
+      } else {
+        message.textContent = "Er ging iets mis bij het verzenden. Probeer het later opnieuw.";
+        message.style.color = "#B91C1C"; // rood tintje
+      }
+    } catch (error) {
+      message.textContent = "Verbindingsfout. Controleer uw internetverbinding.";
+      message.style.color = "#B91C1C";
+    }
+  });
+</script>
+
       </div>
 
       <div class="space-y-6">
@@ -422,6 +451,7 @@
   </script>
 </body>
 </html>
+
 
 
 
