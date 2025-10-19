@@ -323,34 +323,49 @@
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-start">
       <div class="rounded-xl p-6 shadow-2xl border bg-white">
         <h3 class="text-2xl font-bold text-center mb-4">Contact</h3>
-        <form onsubmit="event.preventDefault(); alert('Dank! Dit demo-formulier verzendt nog niet.');" class="space-y-4">
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium mb-2">Naam</label>
-              <input class="w-full rounded-md border-2 bg-gray-100 px-3 py-2" placeholder="Uw naam" required>
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-2">E-mailadres</label>
-              <input type="email" class="w-full rounded-md border-2 bg-gray-100 px-3 py-2" placeholder="uw.email@voorbeeld.nl" required>
-            </div>
-          </div>
-          <div>
-            <label class="block text-sm font-medium mb-2">Ik ben geïnteresseerd als...</label>
-            <select class="w-full rounded-md border-2 bg-gray-100 px-3 py-2">
-              <option>Boer</option>
-              <option>Tuinder</option>
-              <option>Onderzoeker</option>
-              <option>Investeerder</option>
-              <option>Bedrijf</option>
-              <option>Partnerorganisatie</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-sm font-medium mb-2">Vertel ons uw idee, vraag of voorstel</label>
-            <textarea class="w-full rounded-md border-2 bg-gray-100 px-3 py-2" rows="5" placeholder="Beschrijf kort uw situatie of vraag..." required></textarea>
-          </div>
-          <button class="w-full btn-cta rounded-md px-6 py-3 font-semibold shadow-warm">Verstuur bericht</button>
-        </form>
+        <form action="https://formspree.io/f/mbcd1234" method="POST" class="space-y-4">
+  <div class="grid sm:grid-cols-2 gap-4">
+    <div>
+      <label class="block text-sm font-medium mb-2">Naam</label>
+      <input name="naam" class="w-full rounded-md border-2 bg-gray-100 px-3 py-2" placeholder="Uw naam" required>
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-2">E-mailadres</label>
+      <input type="email" name="email" class="w-full rounded-md border-2 bg-gray-100 px-3 py-2" placeholder="uw.email@voorbeeld.nl" required>
+    </div>
+  </div>
+
+  <div>
+    <label class="block text-sm font-medium mb-2">Ik ben geïnteresseerd als...</label>
+    <select name="rol" class="w-full rounded-md border-2 bg-gray-100 px-3 py-2">
+      <option>Boer</option>
+      <option>Tuinder</option>
+      <option>Onderzoeker</option>
+      <option>Investeerder</option>
+      <option>Bedrijf</option>
+      <option>Partnerorganisatie</option>
+    </select>
+  </div>
+
+  <div>
+    <label class="block text-sm font-medium mb-2">Vertel ons uw idee, vraag of voorstel</label>
+    <textarea name="bericht" class="w-full rounded-md border-2 bg-gray-100 px-3 py-2" rows="5" placeholder="Beschrijf kort uw situatie of vraag..." required></textarea>
+  </div>
+
+  <!-- Optioneel: onderwerpregel in je e-mail -->
+  <input type="hidden" name="_subject" value="Nieuw bericht via website (Contactformulier)">
+
+  <!-- Optioneel: redirect naar een bedankpagina na verzenden -->
+  <!-- <input type="hidden" name="_next" value="https://jouw-domein.nl/bedankt.html"> -->
+
+  <!-- Honeypot tegen spam (laat dit leeg / verstop het met CSS als je wilt) -->
+  <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
+
+  <button class="w-full btn-cta rounded-md px-6 py-3 font-semibold shadow-warm">Verstuur bericht</button>
+
+  <!-- Simpele succes/fout melding zonder JS -->
+  <p class="text-sm text-gray-700 mt-2">Na verzenden ziet u een bevestiging van Formspree.</p>
+</form>
       </div>
 
       <div class="space-y-6">
@@ -407,6 +422,7 @@
   </script>
 </body>
 </html>
+
 
 
 
