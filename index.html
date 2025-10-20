@@ -106,11 +106,11 @@
           </div>
         </div>
         <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight">
-  <span class="title-backdrop">
-    Thermal Compost<br>
-    <span class="text-primary">Systems</span>
-  </span>
-</h1>
+          <span class="title-backdrop">
+            Thermal Compost<br>
+            <span class="text-primary">Systems</span>
+          </span>
+        </h1>
         <p class="mt-6 text-lg sm:text-xl text-gray-900">
           Wij bouwen Compost-Warmtesystemen voor boeren, (glas)tuinders en innovatieve bouwprojecten. Lees hier meer over hoe deze systemen werken, de voordelen voor tuinders, en waar wij mee bezig zijn.
         </p>
@@ -121,7 +121,8 @@
       </div>
 
       <!-- Right column: image -->
-      <div class="order-first md:order-none">
+      <!-- On mobile: put image AFTER the buttons -->
+      <div class="order-last md:order-none mt-10 md:mt-0">
         <figure class="rounded-2xl overflow-hidden shadow-2xl border">
           <img
             src="biomeiler-loader.jpg"
@@ -158,7 +159,8 @@
           </li>
         </ul>
       </div>
-      <div class="order-first md:order-none">
+      <!-- On mobile: put image AFTER the 3 points -->
+      <div class="order-last md:order-none mt-8 md:mt-0">
         <figure class="rounded-2xl overflow-hidden border shadow-2xl">
           <img src="biomeiler-assembly.jpg" alt="Opbouw van een biomeiler met kraan en team" class="w-full h-auto object-cover aspect-[4/3]">
         </figure>
@@ -225,14 +227,15 @@
       </div>
 
       <div class="grid md:grid-cols-2 gap-8 items-center">
-        <figure class="rounded-2xl overflow-hidden border shadow-2xl order-first md:order-none">
-          <!-- VERVANGEN DOOR DERDE FOTO -->
-          <img src="container-sprinklers.jpg" alt="Vernevelsysteem boven biomeiler in container" class="w-full h-auto object-cover aspect-[16/10]">
-        </figure>
+        <!-- On mobile: image AFTER the 'Subsidieproject' text -->
         <div>
           <h3 class="text-2xl font-bold mb-2">Subsidieproject met tuinders</h3>
           <p class="text-gray-900">Samen met vier boeren en tuinders hebben we een subsidie binnengehaald van een EU project voor samenwerken aan innovatie in de landbouw. Hierdoor kunnen we de komende twee winters (2025 en 2026) vier nieuwe systemen bouwen en testen op volledige schaal. Dit geeft ons de kans om nieuwe innovaties te testen, meer data te verzamelen en het systeem nog efficiënter te maken. </p>
         </div>
+        <figure class="rounded-2xl overflow-hidden border shadow-2xl order-last md:order-none">
+          <!-- De foto hoort bij het Subsidieproject en staat nu eronder op mobiel -->
+          <img src="container-sprinklers.jpg" alt="Vernevelsysteem boven biomeiler in container" class="w-full h-auto object-cover aspect-[16/10]">
+        </figure>
       </div>
     </div>
   </section>
@@ -283,51 +286,50 @@
   </section>
 
   <!-- PARTNERS -->
-<div class="divider-wrap"><div class="section-divider"></div></div>
-<section id="partners" class="py-16 bg-white">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl sm:text-4xl font-extrabold mb-8 text-primary text-center">Partners</h2>
+  <div class="divider-wrap"><div class="section-divider"></div></div>
+  <section id="partners" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-8 text-primary text-center">Partners</h2>
 
-    <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center justify-items-center">
-      <li class="flex items-center justify-center">
-        <img src="logouu.png" alt="Universiteit Utrecht" loading="lazy"
-             class="max-h-16 w-auto object-contain transition-transform duration-300 hover:scale-105" />
-      </li>
-      <li class="flex items-center justify-center">
-        <img src="logofdk.png" alt="Partner 2" loading="lazy"
-             class="max-h-16 w-auto object-contain transition-transform duration-300 hover:scale-105" />
-      </li>
-      <li class="flex items-center justify-center">
-        <img src="logogrootstal.png" alt="Partner 3" loading="lazy"
-             class="max-h-16 w-auto object-contain transition-transform duration-300 hover:scale-105" />
-      </li>
-      <li class="flex items-center justify-center">
-        <img src="logozonnehoeve.png" alt="Partner 4" loading="lazy"
-             class="max-h-16 w-auto object-contain transition-transform duration-300 hover:scale-105" />
-      </li>
-      <li class="flex items-center justify-center">
-        <img src="logokraaybeek.png" alt="Partner 5" loading="lazy"
-             class="max-h-16 w-auto object-contain transition-transform duration-300 hover:scale-105" />
-      </li>
-    </ul>
-    <!-- Extra logo + tekstblok -->
-<div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 items-center justify-items-center">
-  <!-- Logo links -->
-  <div class="flex justify-center sm:justify-end">
-    <img src="eulogo.png" alt="Extra partnerlogo" loading="lazy"
-         class="max-h-16 w-auto object-contain" />
-  </div>
+      <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center justify-items-center">
+        <li class="flex items-center justify-center">
+          <img src="logouu.png" alt="Universiteit Utrecht" loading="lazy"
+               class="max-h-16 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+        </li>
+        <li class="flex items-center justify-center">
+          <img src="logofdk.png" alt="Partner 2" loading="lazy"
+               class="max-h-16 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+        </li>
+        <li class="flex items-center justify-center">
+          <img src="logogrootstal.png" alt="Partner 3" loading="lazy"
+               class="max-h-16 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+        </li>
+        <li class="flex items-center justify-center">
+          <img src="logozonnehoeve.png" alt="Partner 4" loading="lazy"
+               class="max-h-16 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+        </li>
+        <li class="flex items-center justify-center">
+          <img src="logokraaybeek.png" alt="Partner 5" loading="lazy"
+               class="max-h-16 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+        </li>
+      </ul>
 
-  <!-- Tekst rechts -->
-  <div class="text-sm text-gray-700 leading-relaxed sm:max-w-md">
-    <p>Dit project wordt mede mogelijk gemaakt door het Europees Landbouwfonds voor Plattelandsontwikkeling: Europa investeert in zijn platteland.</p>
-    <p class="mt-2">Samen werken we aan duurzame energie uit compost en circulaire landbouwpraktijken.</p>
-  </div>
-</div>
+      <!-- Extra logo + tekstblok -->
+      <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 items-center justify-items-center">
+        <!-- Logo links -->
+        <div class="flex justify-center sm:justify-end">
+          <img src="eulogo.png" alt="Extra partnerlogo" loading="lazy"
+               class="max-h-16 w-auto object-contain" />
+        </div>
 
-  </div>
-</section>
-
+        <!-- Tekst rechts -->
+        <div class="text-sm text-gray-700 leading-relaxed sm:max-w-md">
+          <p>Dit project wordt mede mogelijk gemaakt door het Europees Landbouwfonds voor Plattelandsontwikkeling: Europa investeert in zijn platteland.</p>
+          <p class="mt-2">Samen werken we aan duurzame energie uit compost en circulaire landbouwpraktijken.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- CONTACT -->
   <div class="divider-wrap"><div class="section-divider"></div></div>
@@ -336,77 +338,76 @@
       <div class="rounded-xl p-6 shadow-2xl border bg-white">
         <h3 class="text-2xl font-bold text-center mb-4">Contact</h3>
         <form id="contactForm" action="https://formspree.io/f/mbcd1234" method="POST" class="space-y-4">
-  <div class="grid sm:grid-cols-2 gap-4">
-    <div>
-      <label class="block text-sm font-medium mb-2">Naam</label>
-      <input name="naam" class="w-full rounded-md border-2 bg-gray-100 px-3 py-2" placeholder="Uw naam" required>
-    </div>
-    <div>
-      <label class="block text-sm font-medium mb-2">E-mailadres</label>
-      <input type="email" name="email" class="w-full rounded-md border-2 bg-gray-100 px-3 py-2" placeholder="uw.email@voorbeeld.nl" required>
-    </div>
-  </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium mb-2">Naam</label>
+              <input name="naam" class="w-full rounded-md border-2 bg-gray-100 px-3 py-2" placeholder="Uw naam" required>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">E-mailadres</label>
+              <input type="email" name="email" class="w-full rounded-md border-2 bg-gray-100 px-3 py-2" placeholder="uw.email@voorbeeld.nl" required>
+            </div>
+          </div>
 
-  <div>
-    <label class="block text-sm font-medium mb-2">Ik ben geïnteresseerd als...</label>
-    <select name="rol" class="w-full rounded-md border-2 bg-gray-100 px-3 py-2">
-      <option>Boer</option>
-      <option>Tuinder</option>
-      <option>Onderzoeker</option>
-      <option>Investeerder</option>
-      <option>Bedrijf</option>
-      <option>Partnerorganisatie</option>
-    </select>
-  </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Ik ben geïnteresseerd als...</label>
+            <select name="rol" class="w-full rounded-md border-2 bg-gray-100 px-3 py-2">
+              <option>Boer</option>
+              <option>Tuinder</option>
+              <option>Onderzoeker</option>
+              <option>Investeerder</option>
+              <option>Bedrijf</option>
+              <option>Partnerorganisatie</option>
+            </select>
+          </div>
 
-  <div>
-    <label class="block text-sm font-medium mb-2">Vertel ons uw idee, vraag of voorstel</label>
-    <textarea name="bericht" class="w-full rounded-md border-2 bg-gray-100 px-3 py-2" rows="5" placeholder="Beschrijf kort uw situatie of vraag..." required></textarea>
-  </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Vertel ons uw idee, vraag of voorstel</label>
+            <textarea name="bericht" class="w-full rounded-md border-2 bg-gray-100 px-3 py-2" rows="5" placeholder="Beschrijf kort uw situatie of vraag..." required></textarea>
+          </div>
 
-  <input type="hidden" name="_subject" value="Nieuw bericht via website (Contactformulier)">
-  <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="_subject" value="Nieuw bericht via website (Contactformulier)">
+          <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
 
-  <button type="submit" class="w-full btn-cta rounded-md px-6 py-3 font-semibold shadow-warm">Verstuur bericht</button>
+          <button type="submit" class="w-full btn-cta rounded-md px-6 py-3 font-semibold shadow-warm">Verstuur bericht</button>
 
-  <!-- Hier verschijnt de melding -->
-  <p id="formMessage" class="text-sm text-center mt-3 hidden"></p>
-</form>
+          <!-- Hier verschijnt de melding -->
+          <p id="formMessage" class="text-sm text-center mt-3 hidden"></p>
+        </form>
 
-<script>
-  const form = document.getElementById('contactForm');
-  const message = document.getElementById('formMessage');
+        <script>
+          const form = document.getElementById('contactForm');
+          const message = document.getElementById('formMessage');
 
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    message.classList.remove('hidden');
-    message.textContent = "Verzenden...";
-    message.style.color = "#555";
+          form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            message.classList.remove('hidden');
+            message.textContent = "Verzenden...";
+            message.style.color = "#555";
 
-    const formData = new FormData(form);
+            const formData = new FormData(form);
 
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
+            try {
+              const response = await fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+              });
 
-      if (response.ok) {
-        form.reset();
-        message.textContent = "Bedankt! We nemen zo snel mogelijk contact met u op.";
-        message.style.color = "#0A7A3E"; // groen tintje
-      } else {
-        message.textContent = "Er ging iets mis bij het verzenden. Probeer het later opnieuw.";
-        message.style.color = "#B91C1C"; // rood tintje
-      }
-    } catch (error) {
-      message.textContent = "Verbindingsfout. Controleer uw internetverbinding.";
-      message.style.color = "#B91C1C";
-    }
-  });
-</script>
-
+              if (response.ok) {
+                form.reset();
+                message.textContent = "Bedankt! We nemen zo snel mogelijk contact met u op.";
+                message.style.color = "#0A7A3E";
+              } else {
+                message.textContent = "Er ging iets mis bij het verzenden. Probeer het later opnieuw.";
+                message.style.color = "#B91C1C";
+              }
+            } catch (error) {
+              message.textContent = "Verbindingsfout. Controleer uw internetverbinding.";
+              message.style.color = "#B91C1C";
+            }
+          });
+        </script>
       </div>
 
       <div class="space-y-6">
@@ -430,7 +431,7 @@
   <!-- FOOTER -->
   <footer class="bg-black/50 text-gray-200 border-t border-black/30 backdrop-blur-sm">
     <div class="max-w-7xl mx-auto px-6 py-12">
-      <div class="grid sm:grid-cols-2 gap-6 items-center">
+      <div class="grid sm:grid-cols-2 gap-8 items-start">
         <div class="flex items-center gap-4">
           <div class="logo-wrap logo-sm" aria-hidden="true">
             <img src="logo-maple-flame.png" alt="Compost-Warmte logo" class="logo-img">
@@ -440,13 +441,14 @@
             <p class="text-gray-300">Compost heat recovery • lokaal & circulair</p>
           </div>
         </div>
-        <nav class="sm:text-right space-x-6">
-          <a href="#home" class="hover:text-primary">Home</a>
-          <a href="#pijlers" class="hover:text-primary">Wat zijn compost-warmtesystemen</a>
-          <a href="#voordelen" class="hover:text-primary">Voordelen</a>
-          <a href="#nieuws" class="hover:text-primary">Nieuws</a>
-          <a href="#faq" class="hover:text-primary">FAQ</a>
-          <a href="#contact" class="hover:text-primary">Contact</a>
+        <!-- Links NETJES ONDER ELKAAR, ook op mobiel -->
+        <nav class="sm:text-right flex flex-col gap-2">
+          <a href="#home" class="hover:text-primary block">Home</a>
+          <a href="#pijlers" class="hover:text-primary block">Wat zijn compost-warmtesystemen</a>
+          <a href="#voordelen" class="hover:text-primary block">Voordelen</a>
+          <a href="#nieuws" class="hover:text-primary block">Nieuws</a>
+          <a href="#faq" class="hover:text-primary block">FAQ</a>
+          <a href="#contact" class="hover:text-primary block">Contact</a>
         </nav>
       </div>
       <div class="mt-8 pt-6 border-t border-gray-700/50 text-center space-y-2">
@@ -463,6 +465,7 @@
   </script>
 </body>
 </html>
+
 
 
 
